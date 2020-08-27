@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8080;
 //Set up Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static("public"));
 
 //Require router file
 require("./routes/apiRoutes.js")(app);
