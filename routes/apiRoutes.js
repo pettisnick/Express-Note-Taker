@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const notes = [];
 
 module.exports = (app) => {
     //Routes
@@ -20,9 +21,8 @@ module.exports = (app) => {
 }
 
 //Delete 
-//receive a parameter containing the ID of a note to delete? Give each note a unique ID when it's saved.
-//To delete a note, need to read all notes from db.json file, remove the note w/the given ID property, and rewrite the notes to db.json
 app.delete("/api/notes/:id", (req, res) => {
+    fs.readFile("./db/db.json", db)
     
     
 });
