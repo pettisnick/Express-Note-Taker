@@ -1,16 +1,29 @@
 const fs = require("fs");
 const path = require("path");
-const notes = [];
+const { uuid } = require("uuidv4");
+
 
 module.exports = (app) => {
     //Routes
+    //--------------------------------------------
+    //Get
     //Reading the 'db.json' file
-    fs.readFile("db/db.json", "utf8", (err, data) => {
-        if (err) throw err;
+    app.get("/api/notes", (req, res) => {
+        fs.readFile("db/db.json", "utf8", (err, data) => {
+        res.json.parse(data);
+        });
+    });
 
+    //Post
+    //Saving new note on request body and adding it to db.json,
+    //then returning new note to client
+    app.post("/api/notes", (req, res) => {
+        const newNote = req.body;
+        newNote.id = uuidv4();
+    })
         let notes = JSON.parse(data);
 
-        app.get("public/notes", (req, res) {
+        app.get("/notes", (req, res) {
             res.JSON(notes);
         });
 
