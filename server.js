@@ -17,8 +17,8 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Require router file
-require("./routes/apiRoutes.js")(app);
-require("./routes/htmlRoutes.js")(app);
+require("./apiRoutes.js")(app);
+require("./htmlRoutes.js")(app);
 
 
    
