@@ -6,11 +6,11 @@ module.exports = (app) => {
 
 // Getting routes
 app.get("/notes", (req, res) => {
-    fs.sendFile(path.join(__dirname, "public/notes.html"));
+    res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
 app.get("*", (req, res) => {
-    fs.sendFile(path.join(__dirname, "public/index.html"));
+    res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
 };

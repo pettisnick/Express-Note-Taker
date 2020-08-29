@@ -46,11 +46,14 @@ module.exports = (app) => {
     app.delete("/api/notes/:id", (req, res) => {
         //Read the db.json file
         fs.readFile("db/db.json", "utf8", (err, data) => {
+            if (err)
+            throw err;
             //noteId = query parameter containing the id
             let noteId = req.params.id;
             //noteData = data being changed from a string to an object
             let noteData = JSON.parse(data);
-            noteData = data.filter(function(note) {
+            console.log(noteData);
+            noteData = noteData.filter(function(note) {
                 //If the noteId's don't have the same value, return true
                 if (noteId != note.id) {
                     return true;
